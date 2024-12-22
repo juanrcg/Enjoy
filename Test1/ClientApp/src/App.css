@@ -1,0 +1,472 @@
+﻿.header-all a ,button, input, span {
+    color: lightgrey;
+    font-family:Courier New, Courier, monospace;
+    text-decoration: none;
+}
+
+    .header-all a:hover{
+
+        color: white;
+
+    }
+
+    .main {
+        font-size: x-large;
+        margin-left: 5%;
+        margin-right: 58%;
+    }
+
+.a-pack {
+    font-size: large;
+    margin-right: 3%;
+}
+
+
+.header-all button {
+    width: 20%;
+    height: 50%;
+    border-radius: 550px;
+    background-color: black;
+    margin-bottom: 1.5%;
+    text-align: center;
+    margin-left: 55%;
+    color: white;
+    border-color: white;
+    transition-duration: 0.1s;
+    cursor: pointer;
+}
+
+
+    .header-all button:hover {
+
+      color: black;
+      background-color: white;
+    }
+
+
+    .footer-all{
+
+        margin-top: 10%;
+
+}
+
+
+body{
+
+    background-color:black;
+    
+   
+    
+
+}
+.icon{
+
+    
+    width: 1.6%;
+}
+
+.header-all {
+
+
+    margin: auto;
+    right: 50%;
+    left: 50%;
+    top: 50%;
+    bottom: 50%;
+    margin-top: 1%;
+   
+}
+
+
+    .all {
+    margin: auto;
+    right: 50%;
+    left: 50%;
+    top: 50%;
+    bottom: 50%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+
+
+    .all input{
+
+        width: 30%;
+        margin: auto;
+        right: 50%;
+        left: 50%;
+        
+        border-radius: 20px;
+        background-color: gray;
+        margin-bottom: 1.5%;
+        text-align: center;
+        
+    }
+
+
+
+    .all button {
+        width: 30%;
+        height: 30%;
+        margin: auto;
+        right: 50%;
+        left: 50%;
+        color: black;
+        border-radius: 20px;
+        background-color:lightgrey;
+        margin-bottom: 1.5%;
+        text-align: center;
+        margin-left: 35% 
+    }
+
+
+
+
+.all a {
+    margin: auto;
+    text-align: center;
+    margin-left: 35%
+}
+
+.policy {
+    text-decoration: underline;
+    color: white;
+    font-family: Courier New, Courier, monospace;
+   
+}
+
+.error_handler_label {
+    margin-left: 37%;
+    align-self: center;
+    text-align: center;
+}
+
+.footer-all {
+    font-family: Courier New, Courier, monospace;
+    margin-bottom: -16%;
+    margin-left: 5%;
+}
+
+.username {
+    margin-left: 16%;
+    
+}
+
+.searchbar{
+
+    border-radius: 35px;
+    margin-left: -45%;
+    width: 25%;
+    text-align:center;
+}
+
+.all input::placeholder {
+
+        text-align: center;
+        color: white
+
+
+    }
+    .all hr{
+        width:5%;
+        color: white;
+        margin-left: 20%;
+
+    }
+
+ 
+
+
+    .msg{
+
+   
+
+        margin-left:25%;
+        margin-right: -10%;
+
+    }
+
+.settings input {
+    margin-left: 5%;
+    width: 30%;
+    border-radius: 20px;
+    background-color: white;
+    margin-bottom: 1.5%;
+    text-align: center;
+    
+}
+
+.setting-select {
+    border-radius: 40px;
+    margin-top: 5%;
+    margin-left: 15%;
+    background-color: white;
+    color: gray;
+    text-align: center;
+
+}
+
+.setting_button {
+    border-radius: 40px;
+    margin-top: 2%;
+    margin-left: 5%;
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+.menu_button{
+
+    background-color: black;
+    border:none;
+}
+
+.h1{
+
+    width:50%;
+}
+
+.menu_button :hover {
+    background-color: black;
+    color: white;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+  
+
+    z-index: 1;
+}
+
+    .dropdown-content a:hover{
+
+        background-color: white;
+        color: black;
+
+    }
+
+    .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+   
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown button:hover{
+
+    background-color: black;
+    color:white;
+  
+}
+.dropdown button{
+    width:100%;
+    border:none;
+    color: white;
+}
+
+
+
+.messager_bar {
+    border-radius: 25px;
+    position: fixed; /* Fixed position relative to the viewport */
+    bottom: 0; /* Stick to the bottom of the viewport */
+   
+    width: 70%; /* Span the full width of the viewport */
+}
+
+    .messager_bar input {
+        flex-shrink: 0; /* Prevent shrinking */
+        border-radius: 25px;
+        color: black;
+        text-align: center;
+        width: 80%;
+    }
+
+
+
+.micro {
+    
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: large;
+}
+
+.store {
+    margin-left: 15%;
+    margin-right: -20%;
+}
+
+
+.chat {
+    display: flex;
+    position: relative;
+}
+
+.chatbox {
+    width: 70.5%;
+    padding: 10px;
+
+    
+ 
+}
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Establishes a positioning context */
+    height: 100vh; /* Full height of the viewport */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages {
+    padding: 10px;
+    max-height: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows the list to grow and take available space */
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: calc(100vh - 100px); /* Adjust based on your header and footer height */
+}
+.sent-message {
+    align-self: flex-end;
+    background-color:grey;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    max-width: 30%;
+}
+
+.received-message {
+    align-self: flex-start;
+    background-color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    max-width: 30%;
+}
+
+.chat_room {
+    width: 29.5%;
+    margin-top: 4%;
+    box-sizing: border-box;
+}
+
+
+.chat_room {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.chat_room::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 4px; /* Same width as border-left */
+        height: 100vh; /* Full height of the viewport */
+        background: white; /* Color of the border */
+        z-index: 0; /* Place the border behind the content */
+ }
+
+
+.user_chat_bar{
+
+   border-radius: 25px;
+   margin-left: 5%;
+   margin-bottom: 3%;
+   width: 90%;
+   text-align: center;
+   color: black;
+
+}
+
+.user:hover {
+    color: black;
+    background-color: white;
+}
+.user {
+    margin-bottom: 2%;
+    color: white;
+    background-color: black;
+    width: 95%;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+video {
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+.controls-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+    .video-call-container video {
+        width: 70%;
+        height: 100%;
+        object-fit: cover;
+        margin-left: 30%;
+    }
+
+    .video-call-container .remote-video {
+        border: 1px solid #ccc;
+    }
+
+.incoming-call-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+    .incoming-call-notification button {
+        margin: 5px;
+    }
+.separator span{
+
+    margin-left: 50%;
+    
+}
