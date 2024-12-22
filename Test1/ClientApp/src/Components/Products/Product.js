@@ -10,7 +10,7 @@
             action: "addproduct",
             name: name,
             price: price,
-            type: type
+            type: type 
         };
 
         socket.send(JSON.stringify(message));
