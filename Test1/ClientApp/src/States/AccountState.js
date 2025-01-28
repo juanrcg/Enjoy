@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 
 import AccountContext from "../Context/AccountContext"
 import userPool from "./UserPool";
@@ -12,8 +12,9 @@ const AWS = require('aws-sdk');
 const cognito = new AWS.CognitoIdentityServiceProvider({ region: 'us-east-1' });
 
 
-const UserPoolId = "us-east-1_83O313Lra";
-const ClientID = "52h3g1uum5ctfq1n9to6q23chj";
+const UserPoolId = "us-east-1_E4tHXcNqJ";
+const ClientID = "2bbfea4ceslu5avrju1vc0d3e2";
+
 
 const AccountState = (props) => {
 
@@ -118,6 +119,7 @@ const AccountState = (props) => {
 
                                 onSuccess: () => {
                                     console.log("success");
+                                    alert("Data changed successful");
                                 },
                                 onFailure: () => {
 
@@ -155,6 +157,7 @@ const AccountState = (props) => {
                                 } else {
 
                                     console.log("sucess", result);
+                                    alert("Data changed successful");
 
                                 }
                             })
@@ -390,10 +393,56 @@ const AccountState = (props) => {
         })
     }
 
+    const fetchAttributeValue = async (attribute) => {
+        const user = userPool.getCurrentUser();
+    
+        if (!user) {
+            throw new Error('User is not authenticated. Please log in.');
+        }
+    
+        // Check if the session is valid
+        try {
+            const session = await new Promise((resolve, reject) => {
+                user.getSession((err, session) => {
+                    if (err) reject(err);
+                    else resolve(session);
+                });
+            });
+    
+            if (!session.isValid()) {
+                throw new Error('Session is invalid or expired.');
+            }
+    
+            // If session is valid, proceed to fetch attributes
+            const attributes = await new Promise((resolve, reject) => {
+                user.getUserAttributes((err, attrs) => {
+                    if (err) reject(err);
+                    else resolve(attrs);
+                });
+            });
+    
+            // Search for the attribute
+            const attr = attributes.find((attr) => attr.Name === attribute);
+    
+            if (attr) {
+                return attr.Value;
+            } else {
+                throw new Error(`Attribute "${attribute}" not found.`);
+            }
+    
+        } catch (err) {
+            // Catch any session or attribute fetching errors
+            throw new Error(`Error fetching attribute: ${err.message}`);
+        }
+    };
+    
+    
+    
+
 
         return (
 
-            <AccountContext.Provider value={{ signup, signout, authenticate, verify, login, getSession, updateUser, userPool, cognitoIdentityServiceProvider, handleConfirmUser }} >
+            <AccountContext.Provider value={{ signup, signout, authenticate, verify, login, getSession, updateUser, fetchAttributeValue, userPool, cognitoIdentityServiceProvider, handleConfirmUser }} >
                 {props.children}
 
             </AccountContext.Provider>

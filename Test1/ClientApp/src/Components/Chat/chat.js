@@ -1,4 +1,4 @@
-﻿import React, { Component, useEffect, useState, useContext, useRef, useCallback, createContext } from 'react';
+import React, { Component, useEffect, useState, useContext, useRef, useCallback, createContext } from 'react';
 import Feed_Header from '../User/feed_header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMessage, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,9 @@ import Messager from './message_box';
 import Footer from '../footer';
 import User_bar from './users_bar';
 import { useWebSocket } from '../../Context/WebSocketContext'; // Adjust path as per your WebSocket context
+import User from './User';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function Chat() {
 
     const [connection, setConnection] = useState(false);
@@ -40,7 +43,7 @@ function Chat() {
 
     }, [socket]);
 
-    const handleUserSelect = (username) => {
+    const handleUserSelect = (username,name) => {
 
         if (selectedSender == username) {
            
@@ -49,23 +52,16 @@ function Chat() {
         else {
             
 
-
+            const newTabUrl = `/message_box?selectedSender=${encodeURIComponent(name)}&selectedSenderSub=${encodeURIComponent(username)}`;
+            window.open(newTabUrl, '_self');
             getSession()
                 .then(session => {
 
                     if (socket && socket.readyState === WebSocket.OPEN) {
 
-                        const body = {
-                            action: 'getmessages',
-                            receiver: "alo",
-                            sender: "Admin",
-                           
-                          
-                        };
-
                       
-                        socket.send(JSON.stringify(body));
                         setSelectedSender(username);
+                      
                         console.log(username);
 
                     } else {
@@ -96,7 +92,6 @@ function Chat() {
           
                 <Feed_Header></Feed_Header>
 
-            <div className="chat">
 
                 <div className="chat_room">
 
@@ -104,13 +99,7 @@ function Chat() {
 
                 </div>
 
-                <div className="chatbox">
-
-                    <Messager senderName={selectedSender} ></Messager>
-
-                </div>
-
-            </div>
+           
 
             <Footer></Footer>
     </>

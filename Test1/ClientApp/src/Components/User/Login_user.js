@@ -1,4 +1,4 @@
-﻿import React, { Component, useEffect, useState, useContext } from 'react';
+import React, { Component, useEffect, useState, useContext } from 'react';
 import AccountContext from '../../Context/AccountContext';
 import AccountState from '../../States/AccountState';
 import { useNavigate } from "react-router-dom";
@@ -78,63 +78,62 @@ function Login() {
             <>
 
             <Header></Header>
-                <div className="all">
+            <div className="container vh-100 d-flex justify-content-center align-items-center text-white">
+    <div className="card p-4 shadow-lg bg-dark text-white" style={{ maxWidth: '400px', width: '100%' }}>
+        <form id="submit_form" action="">
+            <div className="mb-4 text-center">
+                <button 
+                    id="google" 
+                    className="btn btn-outline-light w-100" 
+                    type="button" 
+                    onClick={(event) => setGoogle(event.target.value)}
+                >
+                    Login With Google
+                </button>
+            </div>
 
-                    <div className="inner">
-                        <form id='submit_form'  action=''>
+            <div className="separator text-center my-3">
+                <span className="text-muted">OR</span>
+            </div>
 
+            <div className="mb-3">
+                <label htmlFor="email" className="form-label text-white">Email</label>
+                <input 
+                    id="email" 
+                    value={email} 
+                    onChange={(event) => setEmail(event.target.value)} 
+                    placeholder="Enter your email" 
+                    type="email" 
+                    className="form-control bg-dark text-white border-light"
+                />
+            </div>
 
-                            <div className="form-wrapper">
+            <div className="mb-3">
+                <label htmlFor="password" className="form-label text-white">Password</label>
+                <input 
+                    id="password" 
+                    value={password} 
+                    onChange={(event) => setPass(event.target.value)} 
+                    placeholder="Enter your password" 
+                    type="password" 
+                    className="form-control bg-dark text-white border-light"
+                />
+                <span className="text-danger" id="password_label"></span>
+            </div>
 
-
-
-
-
-                                <button id="google" value={google} onChange={(event) => setGoogle(event.target.value)} placeholder="" type="text" >Login With Google</button>
-                            </div>
-
-                            <div className="separator">
-                                <span> OR </span>
-
-                            </div>
-
-                            <div className="form-wrapper">
-
-                                <input id="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email" type="text" class="form-control"></input>
-
-
-
-
-
-                                <div className="">
-
-                                    <input id="password" value={password} onChange={(event) => setPass(event.target.value)} placeholder="Password" type="text" class="form-control" ></input>
-                                    <span className="error_handler_label" id="password_label"> </span>
-                                </div>
-
-
-                            </div>
-
-
-                            <div >
-
-                                <button  id = 'submit_button' onClick={handleLogin}  > Login </button>
-
-                            </div>
-                           
-
-                        </form>
-                    </div>
-                </div>
-
-
-
-
-
-
-                <div>
-
-                </div>
+            <div className="d-grid">
+                <button 
+                    id="submit_button" 
+                    className="btn btn-light" 
+                    type="button" 
+                    onClick={handleLogin}
+                >
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
                 <Footer></Footer>
             </>

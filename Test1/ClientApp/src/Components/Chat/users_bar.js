@@ -1,6 +1,6 @@
-﻿import React, { Component, useEffect, useState, useContext, useRef, useCallback, createContext } from 'react';
+import React, { Component, useEffect, useState, useContext, useRef, useCallback, createContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMessage, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import AccountContext from '../../Context/AccountContext'
 import { WebSocketProvider } from '../../Context/WebSocketContext'; // Adjust path as per your project structure
 import User from './User';
@@ -17,7 +17,7 @@ function User_bar({ onUserSelect }) {
     const listUsers = async () => {
         try {
             const params = {
-                UserPoolId: "us-east-1_83O313Lra",
+                UserPoolId: "us-east-1_E4tHXcNqJ",
                 AttributesToGet: ['email'] // You can specify which attributes you want to fetch
             };
 
@@ -81,25 +81,34 @@ function User_bar({ onUserSelect }) {
     return (
 
        <>
-            <input
-                className= "user_chat_bar"
-                    type="text"
-                    placeholder="Search by email..."
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                />
-                <div className="users">
+               <div className="container mt-4">
+                <div className="row">
+                    <div className="col-12">
+                        <div className="input-group mb-3">
+                            <span className="input-group-text"><FontAwesomeIcon icon={faSearch} /></span>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Search by email..."
+                                value={searchQuery}
+                                onChange={handleSearchChange}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="list-group">
                     {filteredUsers.map((user, index) => {
                         const emailAttribute = user.Attributes.find(attr => attr.Name === 'email');
                         const email = emailAttribute ? emailAttribute.Value : 'No email found';
 
                         return (
-                            <div key={index} className="user-container">
-                                <User name={email} username={user.Username} onClick={() => onUserSelect(user.Username)} />
+                            <div key={index} className="list-group-item bg-dark text-light">
+                                <User name={email} username={user.Username} onClick={() => onUserSelect(user.Username, email)} />
                             </div>
                         );
                     })}
                 </div>
+            </div>
        </>
 
     )

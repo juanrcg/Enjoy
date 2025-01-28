@@ -1,4 +1,4 @@
-﻿
+
 import React, { Component, useEffect, useState, useContext } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import AccountContext from '../../Context/AccountContext';
@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faGlassMartini, faMartiniGlassCitrus, faMessage, faBath } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 
@@ -55,35 +57,65 @@ function Feed_Header() {
     return (
         <>
 
-          
+          <div className="container-fluid bk py-2">
+  <div className="d-flex align-items-center justify-content-between">
+    {/* Brand Name with Icon */}
+    <a className="navbar-brand d-flex align-items-center text-white" href="/feed">
+      Hangout <FontAwesomeIcon className="ms-2" icon={faMartiniGlassCitrus} />
+    </a>
 
-            <div className="header-all">
+    {/* Search Bar */}
+    <div className="flex-grow-1 mx-3">
+      <input
+        id="searchbar"
+        className="form-control"
+        type="text"
+        placeholder="Search"
+      />
+    </div>
 
-                <div>
+    {/* Navigation Icons */}
+    <div className="d-flex align-items-center  text-white">
+      <a className="me-3 text-white" href="/chat">
+        <FontAwesomeIcon icon={faMessage} />
+      </a>
+      <a className="me-3 text-white text-decoration-none" href="/profile" id="username">
+        username
+      </a>
 
-                    <a className="main"><Link to='/'>  Hangout <FontAwesomeIcon class="icon" icon={faMartiniGlassCitrus} /> </Link> </a>
-                    <input id="searchbar" className="searchbar"></input>
-
-                    <a className="store"><Link to='/chat'> <FontAwesomeIcon icon={faBath} /></Link></a> 
-                    <a className="msg"><Link to='/chat'> <FontAwesomeIcon icon={faMessage} /></Link></a> 
-                    <a className="username" id="username">username</a>
-                    <div class="dropdown">
-                        <button class="menu_button"> <FontAwesomeIcon icon={faGlassMartini} /> </button>
-                        <div class="dropdown-content">
-                            <Link to='/profile'>Profile </Link>
-                            <Link to='/settings'>Settings </Link>
-                            <Link onClick={handlesignout} >Logout </Link>
-                           
-                            
-                           
-                        </div>
-                    </div>
-
-                    
-                </div>
-
-            </div>
-            <Outlet />
+      {/* Dropdown Menu */}
+      <div className="dropdown">
+        <button
+          className="btn btn-dark dropdown-toggle "
+          type="button"
+          id="dropdownMenuButton"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <FontAwesomeIcon icon={faGlassMartini} />
+        </button>
+        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li>
+          <Link className="dropdown-item" to="/profile">
+            Profile
+            </Link>
+          </li>
+          <li>
+            <a className="dropdown-item" href="/settings">
+              Settings
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="#" onClick={handlesignout}>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<Outlet />
         </>
     );
 

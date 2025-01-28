@@ -1,4 +1,4 @@
-﻿import React, { Component, useEffect, useState, useContext } from 'react';
+import React, { Component, useEffect, useState, useContext } from 'react';
 import AccountContext from '../../Context/AccountContext';
 import AccountState from '../../States/AccountState';
 import Header from '../header';
@@ -77,63 +77,68 @@ function Sign_Up() {
     <>
 
             <Header></Header>
-            <div className="all">
-                
-                <div  className="inner">
-                    <form action=''>
-                        
-
-                        <div className="form-wrapper">
-
-                           
-                                  
-                              
-
-                            <button id="google" value={google} onChange={(event) => setGoogle(event.target.value)} placeholder="" type="text" >Set up With Google</button>
-                        </div>
-
-                        <div className="separator">
-                            <span> OR </span>
-
-                        </div>
-                         
-                            <div className="form-wrapper">
-
-                                <input id="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email" type="text" class="form-control"></input>
-                          
-
-
-
-
-                            <div className="">
-
-                                <input id="password" value={password} onChange={(event) => setPass(event.target.value)} placeholder="Password" type="text" class="form-control" ></input>
-                                <span className="error_handler_label" id="password_label"> </span>
-                            </div>
-
-
-                        </div>
-
-                     
-                        <div >
-
-                            <button onClick={handleRegistration}  > Create an Account</button>
-                            
-                        </div>
-                        <a> By creating an account you are accepting our <span className = "policy">Policy</span></a>
-
-                    </form>
-                </div>
+            <div className="container vh-100 d-flex justify-content-center align-items-center  text-white">
+    <div className="card p-4 shadow-lg bg-dark text-white" style={{ maxWidth: '400px', width: '100%' }}>
+        <form>
+            <div className="mb-4 text-center">
+                <button 
+                    id="google" 
+                    className="btn btn-outline-light w-100" 
+                    type="button" 
+                    onClick={(event) => setGoogle(event.target.value)}
+                >
+                    Set up With Google
+                </button>
             </div>
 
-
-
-
-
-
-            <div>
-
+            <div className="separator text-center my-3">
+                <span className="text-muted">OR</span>
             </div>
+
+            <div className="mb-3">
+                <label htmlFor="email" className="form-label text-white">Email</label>
+                <input 
+                    id="email" 
+                    value={email} 
+                    onChange={(event) => setEmail(event.target.value)} 
+                    placeholder="Enter your email" 
+                    type="email" 
+                    className="form-control bg-dark text-white border-light"
+                />
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="password" className="form-label text-white">Password</label>
+                <input 
+                    id="password" 
+                    value={password} 
+                    onChange={(event) => setPass(event.target.value)} 
+                    placeholder="Enter your password" 
+                    type="password" 
+                    className="form-control bg-dark text-white border-light"
+                />
+                <span className="text-danger" id="password_label"></span>
+            </div>
+
+            <div className="d-grid">
+                <button 
+                    className="btn btn-light" 
+                    type="button" 
+                    onClick={handleRegistration}
+                >
+                    Create an Account
+                </button>
+            </div>
+
+            <div className="text-center mt-3">
+                <small>
+                    By creating an account, you are accepting our <span className="text-primary">Policy</span>.
+                </small>
+            </div>
+        </form>
+    </div>
+</div>
+
 
             <Footer></Footer>
 </>

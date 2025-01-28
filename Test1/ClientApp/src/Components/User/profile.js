@@ -1,4 +1,4 @@
-﻿import React, { Component, useEffect, useState, useContext } from 'react';
+import React, { Component, useEffect, useState, useContext } from 'react';
 import Feed_Header from '../User/feed_header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlassMartini, faMartiniGlassCitrus, faUserGear } from '@fortawesome/free-solid-svg-icons';

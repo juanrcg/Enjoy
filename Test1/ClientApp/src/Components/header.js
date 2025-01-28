@@ -1,4 +1,4 @@
-﻿
+
 import React, { Component, useEffect, useState, useContext } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import { faGlassMartini, faMartiniGlassCitrus } from '@fortawesome/free-solid-svg-icons'
@@ -10,21 +10,29 @@ function Header() {
     return (
         <>
 
-            <div className="header-all">
+<div className="container-fluid bg-dark text-white">
+  <div className="row align-items-center py-3">
+    <div className="col-12 d-flex justify-content-between align-items-center">
+      {/* Logo and link */}
+      <a className="text-white h4" href="/" style={{ textDecoration: 'none' }}>
+        Hangout <FontAwesomeIcon className="icon" icon={faMartiniGlassCitrus} />
+      </a>
 
-                <div>
+      {/* Sign In and Sign Up links */}
+      <div className="d-flex">
+        <a className="text-white me-3" href="/Login_User" style={{ textDecoration: 'none' }}>
+          Sign In
+        </a>
+        <a className="text-white" href="/SignUp_user" style={{ textDecoration: 'none' }}>
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <Outlet />
+</div>
 
-
-                    <a className="main"><Link to='/'>  Hangout <FontAwesomeIcon class="icon" icon={faMartiniGlassCitrus} /> </Link> </a>
-
-                        <a className="a-pack"><Link to="/Login_User">  Sign In </Link> </a>
-
-                            <a className="a-pack" ><Link to='/SignUp_user'>  Sign Up </Link></a>
-
-                </div>
-
-            </div>
-            <Outlet />
         </>
     );
 

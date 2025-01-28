@@ -1,10 +1,14 @@
-﻿// Message.jsx
 import React from 'react';
 
-const Message = ({text, isSent }) => {
+const Message = ({ text, isSent }) => {
     return (
-        <div className={isSent ? 'sent-message' : 'received-message'}>
-          {text}
+        <div className={`d-flex ${isSent ? 'justify-content-end' : 'justify-content-start'} mb-2`}>
+            <div 
+                className={`p-2 rounded ${isSent ? 'bg-primary text-white' : 'bg-light text-dark'}`}
+                style={{ maxWidth: '70%' }}
+            >
+                {text}
+            </div>
         </div>
     );
 };
