@@ -212,7 +212,7 @@ const Post = ({ data, userPhoto, userName }) => {
             marginTop: "20px",
             borderTop: "1px solid #ddd",
             paddingTop: "15px",
-            maxHeight: "200px",
+            maxHeight: "20px",
             overflowY: "auto",
           }}
         >
